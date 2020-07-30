@@ -13,14 +13,17 @@ class clsMoon {
     clsRGBLED rgbled2;
     
     int mode;
-    int subMode; // full and half moon
+    int lastMode;
     long modeRateOfChange; // default chnage between modes and sub modes
 
     // cycle variables for modes/sub modes that use them
     int cycle;
+    int lastCycle;
     long cycleTime;
     long nextCycleChange; // some modes have times changes
     long cycleRateOfChange;
+
+    byte phase; // full and half moon
 
     // functions
     clsMoon();
@@ -28,15 +31,14 @@ class clsMoon {
     void update();
 
     // led function
-    void set(byte red, byte green, byte blue, bool fullMoon, long rateOfChange);
-    void randomSet(bool fullMoon, long rateOfChange);
+    void set(byte red, byte green, byte blue, byte phase, long rateOfChange);
+    void randomSet(byte phase, long rateOfChange);
     bool changing();
 
     // mode settings
-    void updateMode();
+    void updateDisplay();
     void nextMode();
-    void nextSubMode();
-    void nextCycle();
+    void nextPhase();
   
    private:
     // properties

@@ -1,23 +1,13 @@
 #include "clsMoon.h"
 
-// properties
-
-
-// internal values
-int lastModeButtonState;
-int lastSubModeButtonState;
-
 // objects
 clsButton modeButton;
-clsButton subModeButton;
+clsButton phaseButton;
 clsMoon moon; 
 
 void setup() {
   modeButton.init(2);    
-  lastModeButtonState = HIGH;
-  
-  subModeButton.init(4);
-  lastModeButtonState = HIGH;    
+  phaseButton.init(4);
 }
 
 void loop() {
@@ -28,8 +18,8 @@ void loop() {
   if (modeButton.wasPressed()) moon.nextMode();
 
   //process Sub Mode Button
-  subModeButton.update();
-  if (subModeButton.wasPressed()) moon.nextSubMode();
+  phaseButton.update();
+  if (phaseButton.wasPressed()) moon.nextPhase();
 
   moon.update();
 }
