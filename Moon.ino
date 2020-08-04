@@ -6,8 +6,8 @@ clsButton phaseButton;
 clsMoon moon; 
 
 void setup() {
-  modeButton.init(2);    
-  phaseButton.init(4);
+  modeButton.init(4);    
+  phaseButton.init(2 );
 }
 
 void loop() {
